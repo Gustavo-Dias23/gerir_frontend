@@ -3,7 +3,10 @@ import {Container, Form, Button} from 'react-bootstrap';
 import logo from '../../../src/logo.svg';
 import './index.css';
 
+import { useHistory } from 'react-router-dom';
+
 const Login = () => {
+    let history = useHistory();
 
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
@@ -35,6 +38,8 @@ const Login = () => {
             console.log(data);
 
             localStorage.setItem('token-gerir', data.token);
+
+            history.push("/tarefas");
         })
 
     }

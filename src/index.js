@@ -2,14 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import Login from './pages/login';
 
+import Tarefas from './pages/tarefas';
+import Login from './pages/login'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+
+const rotas = (
+  <Router>
+    <div>
+      <Switch>
+        <Route exact path = '/' component = {Login}/>
+        <Route path = '/tarefas' component = {Tarefas}/>
+      </Switch>
+    </div>
+  </Router>
+)
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Login />
-  </React.StrictMode>,
+    rotas,
   document.getElementById('root')
 );
 
